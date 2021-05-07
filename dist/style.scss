@@ -1,0 +1,63 @@
+@mixin center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+body {
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: #eee;
+
+	main {
+		flex-grow: 1;
+		@include center;
+
+		article {
+			background-color: white;
+			width: 240px;
+			height: 340px;
+			border-radius: 0.5rem;
+			box-shadow: 0 0 3rem rgba($color: #000000, $alpha: 0.2);
+			@include center;
+			flex-direction: column;
+			justify-content: space-between;
+
+			header,
+			footer {
+				@include center;
+				flex-direction: column;
+				margin: 1rem;
+				align-self: flex-start;
+
+				p {
+					margin: 0;
+					font-size: 1.4rem;
+				}
+			}
+
+			footer {
+				align-self: flex-end;
+				transform: rotateZ(180deg);
+			}
+
+			h1 {
+				font-size: 4rem;
+			}
+
+			&.red {
+				.suit {
+					color: rgb(206, 39, 39);
+				}
+			}
+		}
+	}
+
+	> footer {
+		height: 12rem;
+		@include center;
+		flex-direction: column;
+	}
+}
